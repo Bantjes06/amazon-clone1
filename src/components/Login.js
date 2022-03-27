@@ -14,7 +14,7 @@ const reducer = (state, action) => {
   return { emailValue: "", passwordValue: "" };
 };
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, {
@@ -46,6 +46,7 @@ const Login = () => {
     e.preventDefault();
     console.log("entered email: ", email);
     console.log("entered password: ", password);
+    onLogin(email, password);
   };
 
   return (
